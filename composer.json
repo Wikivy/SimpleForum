@@ -1,0 +1,48 @@
+{
+	"name": "wikivy/simpleforum",
+	"type": "mediawiki-extension",
+	"description": "A MediaWiki extension to easily create new wikis on a wiki farm.",
+	"homepage": "https://www.mediawiki.org/wiki/Extension:SimpleForum",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Wikivy"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/Wikivy/SimpleForum/issues",
+		"wiki": "https://www.mediawiki.org/wiki/Extension:SimpleForum"
+	},
+	"require": {
+		"composer/installers": ">=1.0.1"
+	},
+	"require-dev": {
+		"mediawiki/mediawiki-codesniffer": "48.0.0",
+		"mediawiki/mediawiki-phan-config": "0.17.0",
+		"mediawiki/minus-x": "1.1.3",
+		"miraheze/phan-plugins": "0.3.0",
+		"php-parallel-lint/php-console-highlighter": "1.0.0",
+		"php-parallel-lint/php-parallel-lint": "1.4.0"
+	},
+	"scripts": {
+		"fix": [
+			"minus-x fix .",
+			"phpcbf; if [ $? -eq 1 ]; then exit 0; fi"
+		],
+		"test": [
+			"parallel-lint . --exclude node_modules --exclude vendor",
+			"minus-x check .",
+			"@phpcs"
+		],
+		"phan": "phan -d . --long-progress-bar",
+		"phpcs": "phpcs -sp --cache"
+	},
+	"config": {
+		"prepend-autoloader": false,
+		"optimize-autoloader": true,
+		"allow-plugins": {
+			"composer/installers": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	}
+}

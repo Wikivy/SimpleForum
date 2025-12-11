@@ -1,0 +1,76 @@
+[
+	{
+		"name": "simpleforum_threads",
+		"columns": [
+			{
+				"name": "sf_thread_id",
+				"type": "bigint",
+				"options": {
+					"autoincrement": true,
+					"unsigned": true,
+					"notnull": true
+				}
+			},
+			{
+				"name": "sf_page_id",
+				"type": "bigint",
+				"options": {
+					"unsigned": true,
+					"notnull": true
+				}
+			},
+			{
+				"name": "sf_forum_page_id",
+				"type": "bigint",
+				"options": {
+					"unsigned": true,
+					"notnull": true
+				}
+			},
+			{
+				"name": "sf_subject",
+				"type": "string",
+				"options": {
+					"length": 255,
+					"notnull": true
+				}
+			},
+			{
+				"name": "sf_created",
+				"type": "mwtimestamp",
+				"options": {
+					"notnull": true
+				}
+			},
+			{
+				"name": "sf_creator",
+				"type": "bigint",
+				"options": {
+					"unsigned": true,
+					"notnull": true
+				}
+			},
+			{
+				"name": "sf_last_reply",
+				"type": "mwtimestamp",
+				"options": {
+					"notnull": false
+				}
+			},
+			{
+				"name": "sf_last_reply_user",
+				"type": "bigint",
+				"options": {
+					"unsigned": true,
+					"notnull": false
+				}
+			}
+		],
+		"indexes": [
+			{ "name":  "sf_thread_page", "columns":  ["sf_page_id"], "unique": true },
+			{ "name":  "sf_thread_forum", "columns":  ["sf_forum_page_id"], "unique": false  },
+			{ "name":  "sf_thread_last", "columns":  ["sf_last_reply"], "unique": false  }
+		],
+		"pk": [ "sf_thread_id" ]
+	}
+]

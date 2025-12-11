@@ -1,0 +1,53 @@
+{
+	"before": {
+		"name": "simpleforum_thread_props",
+		"columns": [
+			{
+				"name": "sf_page_id",
+				"type": "bigint",
+				"options": {
+					"unsigned": true,
+					"notnull": true
+				}
+			},
+			{
+				"name": "sf_locked",
+				"type": "mwtinyint",
+				"options": {
+					"default": 0
+				}
+			}
+		],
+		"indexes": [],
+		"pk": [ "sf_page_id" ]
+	},
+	"after": {
+		"name": "simpleforum_thread_props",
+		"columns": [
+			{
+				"name": "sf_page_id",
+				"type": "bigint",
+				"options": {
+					"unsigned": true,
+					"notnull": true
+				}
+			},
+			{
+				"name": "sf_locked",
+				"type": "mwtinyint",
+				"options": {
+					"default": 0
+				}
+			},
+			{
+				"name": "sf_sticky",
+				"type": "mwtinyint",
+				"options": {
+					"default": 0
+				}
+			}
+		],
+		"indexes": [],
+		"pk": [ "sf_page_id" ]
+	}
+}

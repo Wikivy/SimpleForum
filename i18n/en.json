@@ -1,0 +1,48 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wikivy"
+		]
+	},
+	"simpleforum-special-forums": "Forums",
+	"simpleforum-special-forums-desc": "Lists all forums",
+	"simpleforum-special-newthread": "New thread",
+	"simpleforum-special-newthread-desc": "Create a new thread in a forum",
+	"simpleforum-forums-page-title": "Forums",
+	"simpleforum-forums-intro": "Below is a list of all forums on this wiki.",
+	"simpleforum-no-forums": "There are currently no forums.",
+	"simpleforum-forum-threads-heading": "Threads in this forum",
+	"simpleforum-no-threads": "There are no threads in this forum yet.",
+	"simpleforum-create-thread-link": "Start a new thread",
+
+	"simpleforum-newthread-page-title": "Start a new thread",
+	"simpleforum-newthread-select-forum": "Forum",
+	"simpleforum-newthread-subject": "Subject",
+	"simpleforum-newthread-body": "Message",
+	"simpleforum-newthread-submit": "Create thread",
+	"simpleforum-newthread-missing-forum": "You must specify an existing forum.",
+	"simpleforum-newthread-invalid-forum": "The forum specified is invalid.",
+	"simpleforum-newthread-empty-subject": "The subject cannot be empty.",
+	"simpleforum-newthread-permission-denied": "You do not have permission to create threads.",
+	"simpleforum-newthread-created": "Thread created successfully.",
+
+	"simpleforum-thread-replies-heading": "Reply to this thread",
+	"simpleforum-reply-body": "Your reply",
+	"simpleforum-reply-submit": "Post reply",
+	"simpleforum-reply-empty": "Your reply cannot be empty.",
+	"simpleforum-reply-permission-denied": "You do not have permission to reply in this forum.",
+	"simpleforum-reply-added": "Reply added successfully.",
+
+	"simpleforum-thread-locked-notice": "This thread is locked and no longer accepts new replies.",
+	"simpleforum-lockthread-link": "Lock this thread",
+	"simpleforum-unlockthread-link": "Unlock this thread",
+	"simpleforum-lockthread-permission-denied": "You do not have permission to lock or unlock threads.",
+	"simpleforum-lockthread-locked": "Thread has been locked.",
+	"simpleforum-lockthread-unlocked": "Thread has been unlocked.",
+
+	"simpleforum-thread-sticky-notice": "This thread is pinned (sticky) and appears at the top of the forum.",
+	"simpleforum-stickthread-link": "Pin this thread",
+	"simpleforum-unstickthread-link": "Unpin this thread",
+	"simpleforum-stickthread-sticky": "Thread has been pinned.",
+	"simpleforum-stickthread-unsticky": "Thread has been unpinned."
+}

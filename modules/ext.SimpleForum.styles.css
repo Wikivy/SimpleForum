@@ -1,0 +1,170 @@
+/* Wrapper around forum and thread sections */
+.simpleforum-forum-wrapper,
+.simpleforum-thread-reply-wrapper {
+	margin-top: 1.5em;
+	padding: 1em 1.25em;
+	border: 1px solid #c8ccd1;
+	border-radius: 4px;
+	background-color: #f8f9fa;
+}
+
+/* Headings inside forum / thread blocks */
+.simpleforum-forum-wrapper > h2,
+.simpleforum-thread-reply-wrapper > h2 {
+	margin-top: 0;
+	font-size: 1.2em;
+	border-bottom: 1px solid #c8ccd1;
+	padding-bottom: 0.3em;
+}
+
+/* Thread list on forum pages */
+.simpleforum-thread-list {
+	list-style: none;
+	margin: 0.75em 0 0.5em 0;
+	padding: 0;
+}
+
+.simpleforum-thread-list li {
+	padding: 0.35em 0;
+	border-bottom: 1px solid #eaecf0;
+}
+
+.simpleforum-thread-list li:last-child {
+	border-bottom: none;
+}
+
+/* "Start a new thread" link */
+.simpleforum-newthread-link {
+	margin-top: 0.75em;
+	text-align: right;
+}
+
+/* Reply form styling */
+.simpleforum-thread-reply-wrapper table.wikitable {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.simpleforum-thread-reply-wrapper table.wikitable th,
+.simpleforum-thread-reply-wrapper table.wikitable td {
+	padding: 0.5em;
+	vertical-align: top;
+}
+
+/* Textareas look better full-width */
+.simpleforum-thread-reply-wrapper textarea,
+.simpleforum-forum-wrapper textarea {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+/* Special page forum list */
+.simpleforum-forums-list {
+	list-style: none;
+	margin: 0.75em 0 0.5em 0;
+	padding: 0;
+}
+
+.simpleforum-forums-list li {
+	padding: 0.35em 0;
+	border-bottom: 1px solid #eaecf0;
+}
+
+.simpleforum-forums-list li:last-child {
+	border-bottom: none;
+}
+
+/* Error messages in special pages */
+.simpleforum-error,
+p.error {
+	color: #d33;
+	font-weight: bold;
+}
+
+/* Locked thread banner */
+.simpleforum-lock-banner {
+	margin: 1em 0;
+	padding: 0.75em 1em;
+	border: 1px solid #d33;
+	border-radius: 4px;
+	background-color: #fee7e6;
+	color: #7a0000;
+	font-weight: bold;
+}
+
+/* Lock controls */
+.simpleforum-lock-controls {
+	margin: 0.5em 0 1em 0;
+}
+
+.simpleforum-lock-controls form {
+	display: inline-block;
+}
+
+/* Thread list */
+.simpleforum-thread-item {
+	padding: 0.5em 0.2em;
+	border-bottom: 1px solid #eaecf0;
+}
+
+.simpleforum-thread-item:last-child {
+	border-bottom: none;
+}
+
+.simpleforum-thread-title {
+	font-weight: 600;
+	margin-bottom: 0.15em;
+}
+
+.simpleforum-thread-meta {
+	font-size: 0.85em;
+	color: #72777d;
+}
+
+/* Pager */
+.simpleforum-pager {
+	margin-top: 0.75em;
+	text-align: center;
+	font-size: 0.9em;
+}
+
+.simpleforum-pager a {
+	margin: 0 0.35em;
+	text-decoration: none;
+}
+
+.simpleforum-pager-current {
+	margin: 0 0.35em;
+	font-weight: bold;
+}
+
+.simpleforum-pager-disabled {
+	margin: 0 0.35em;
+	color: #c8ccd1;
+}
+
+/* Sticky banner on thread page */
+.simpleforum-sticky-banner {
+	margin: 0.75em 0;
+	padding: 0.6em 1em;
+	border: 1px solid #a2a9b1;
+	border-radius: 4px;
+	background-color: #fff7d1;
+	color: #3b3e40;
+	font-weight: 600;
+}
+
+/* Sticky thread item in forum list */
+.simpleforum-thread-sticky {
+	background-color: #fdf7e7;
+}
+
+.simpleforum-thread-sticky .simpleforum-thread-title {
+	font-weight: 700;
+}
+
+/* Lock/sticky controls area */
+.simpleforum-lock-controls form {
+	display: inline-block;
+	margin-right: 0.5em;
+}

@@ -1,0 +1,268 @@
+{
+	"name": "SimpleForum",
+	"version": "1.0.0",
+	"author": "Wikivy",
+	"url": "https://www.mediawiki.org/wiki/Extension:SimpleForum",
+	"descriptionmsg": "simpleforum-desc",
+	"license-name": "MIT",
+	"type": "other",
+
+	"requires": {
+		"MediaWiki": ">= 1.40.0",
+		"extensions": {
+			"VisualEditor": "*",
+			"Linter": "*",
+			"Echo": "*"
+		}
+	},
+
+	"AutoloadNamespaces": {
+		"Wikivy\\SimpleForum\\": "includes/"
+	},
+
+	"MessagesDirs": {
+		"SimpleForum": [
+			"i18n",
+			"i18n/api"
+		]
+	},
+
+	"ExtensionMessagesFiles": {
+		"SimpleForumAlias": "SimpleForum.alias.php",
+		"SimpleForumNamespaces": "SimpleForum.namespaces.php"
+	},
+
+	"ResourceModules": {
+		"ext.SimpleForum.styles": {
+			"styles": [
+				"modules/ext.SimpleForum.styles.css"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		}
+	},
+
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "SimpleForum"
+	},
+
+	"GroupPermissions": {
+		"user": {
+			"createforum": false,
+			"createthread": true
+		},
+		"sysop": {
+			"createforum": true,
+			"createthread": true
+		}
+	},
+
+	"AvailableRights": [
+		"createforum",
+		"createthread"
+	],
+
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	],
+
+	"config": {
+		"SimpleForumPermissions": {
+			"value": {
+				"default": {
+					"create": [
+						"user"
+					],
+					"reply": [
+						"user"
+					]
+				}
+			}
+		}
+	},
+
+	"namespaces": [
+		{
+			"id": 7104,
+			"constant": "NS_FORUM",
+			"name": "Forum"
+		},
+		{
+			"id": 7106,
+			"constant": "NS_THREAD",
+			"name": "Thread"
+		}
+	],
+
+	"HookHandlers": {
+		"SimpleForumInstaller": {
+			"class": "Wikivy\\SimpleForum\\Hooks\\Handlers\\Installer"
+		},
+		"SimpleForumOutputHooks": {
+			"class": "Wikivy\\SimpleForum\\Hooks\\Handlers\\OutputHooks",
+			"services": [
+				"DBLoadBalancerFactory",
+				"UserFactory"
+			]
+		},
+		"SimpleForumPageHooks": {
+			"class": "Wikivy\\SimpleForum\\Hooks\\Handlers\\PageHooks",
+			"services": [
+				"DBLoadBalancerFactory"
+			]
+		}
+	},
+
+	"Hooks": {
+		"LoadExtensionSchemaUpdates": "SimpleForumInstaller",
+		"BeforePageDisplay": "SimpleForumOutputHooks",
+		"PageSaveComplete": "SimpleForumPageHooks"
+	},
+
+	"RestRoutes": [
+		{
+			"path": "/simpleforum/v1/forums",
+			"method": "GET",
+			"class": "Wikivy\\SimpleForum\\Rest\\ForumsHandler",
+			"services": [
+				"DBLoadBalancerFactory",
+				"WikiPageFactory"
+			]
+		},
+		{
+			"path": "/simpleforum/v1/forums",
+			"method": "POST",
+			"class": "Wikivy\\SimpleForum\\Rest\\ForumsHandler",
+			"services": [
+				"DBLoadBalancerFactory",
+				"WikiPageFactory"
+			]
+		},
+		{
+			"path": "/simpleforum/v1/forums/{forumId}/threads",
+			"method": "GET",
+			"class": "Wikivy\\SimpleForum\\Rest\\ForumThreadsHandler",
+			"pathParams": {
+				"forumId": {
+					"type": "integer"
+				}
+			},
+			"services": [
+				"DBLoadBalancerFactory",
+				"WikiPageFactory"
+			]
+		},
+		{
+			"path": "/simpleforum/v1/forums/{forumId}/threads",
+			"method": "POST",
+			"class": "Wikivy\\SimpleForum\\Rest\\ForumThreadsHandler",
+			"pathParams": {
+				"forumId": {
+					"type": "integer"
+				}
+			},
+			"services": [
+				"DBLoadBalancerFactory",
+				"WikiPageFactory"
+			]
+		},
+		{
+			"path": "/simpleforum/v1/threads/{threadId}",
+			"method": "GET",
+			"class": "Wikivy\\SimpleForum\\Rest\\ThreadHandler",
+			"pathParams": {
+				"threadId": {
+					"type": "integer"
+				}
+			},
+			"services": [
+				"DBLoadBalancerFactory"
+			]
+		},
+		{
+			"path": "/simpleforum/v1/threads/{threadId}/lock",
+			"method": "POST",
+			"class": "Wikivy\\SimpleForum\\Rest\\ThreadLockHandler",
+			"pathParams": {
+				"threadId": {
+					"type": "integer"
+				}
+			},
+			"services": [
+				"DBLoadBalancerFactory"
+			]
+		},
+		{
+			"path": "/simpleforum/v1/threads/{threadId}/sticky",
+			"method": "POST",
+			"class": "Wikivy\\SimpleForum\\Rest\\ThreadStickyHandler",
+			"pathParams": {
+				"threadId": {
+					"type": "integer"
+				}
+			},
+			"services": [
+				"DBLoadBalancerFactory"
+			]
+		},
+		{
+			"path": "/simpleforum/v1/threads/{threadId}/replies",
+			"method": "POST",
+			"class": "Wikivy\\SimpleForum\\Rest\\ThreadRepliesHandler",
+			"pathParams": {
+				"threadId": {
+					"type": "integer"
+				}
+			},
+			"services": [
+				"DBLoadBalancerFactory",
+				"WikiPageFactory"
+			]
+		}
+	],
+
+	"SpecialPages": {
+		"Forums": {
+			"class": "Wikivy\\SimpleForum\\Specials\\SpecialForums",
+			"services": [
+				"DBLoadBalancerFactory"
+			]
+		},
+		"NewThread": {
+			"class": "Wikivy\\SimpleForum\\Specials\\SpecialNewThread",
+			"services": [
+				"WikiPageFactory",
+				"DBLoadBalancerFactory"
+			]
+		},
+		"ReplyThread": {
+			"class": "Wikivy\\SimpleForum\\Specials\\SpecialReplyThread",
+			"services": [
+				"WikiPageFactory",
+				"DBLoadBalancerFactory"
+			]
+		},
+		"LockThread": {
+			"class": "Wikivy\\SimpleForum\\Specials\\SpecialLockThread"
+		}
+	},
+
+	"SpecialPageGroups": {
+		"Forums": "changes",
+		"NewThread": "pagetools",
+		"ReplyThread": "pagetools"
+	},
+
+	"NotificationCategories": {
+
+	},
+
+	"Notifications": {
+
+	},
+
+	"manifest_version": 2
+}
